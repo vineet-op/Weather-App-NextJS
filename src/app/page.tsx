@@ -12,15 +12,22 @@ import {
 
 interface WeatherData {
   name: string;
-  sys: string
-  country: string
-  weather: string
-  min: string
-  max: string
-  wind: string
-  icon: string
-  // Add other properties that you might use from the response
+  sys: {
+    country: string;
+  };
+  weather: Array<{
+    main: string;
+    icon: string;
+  }>;
+  main: {
+    temp_min: string;
+    temp_max: string;
+  };
+  wind: {
+    speed: string;
+  };
 }
+
 
 export default function Home() {
   const [city, setCity] = useState('');
